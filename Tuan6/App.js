@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Tuan6_4a from './screen/Tuan6_4a.js'; // Đảm bảo đường dẫn đúng
+import Tuan6_4a from './screen/Tuan6_4a'; // Đảm bảo rằng đường dẫn đúng
+import Tuan6_4b from './screen/Tuan6_4b'; // Đảm bảo rằng đường dẫn đúng
 
 const Stack = createStackNavigator();
 
@@ -13,9 +14,16 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Tuan6_4a')}
-        activeOpacity={0.7} // Hiệu ứng nhấn
+        activeOpacity={0.7}
       >
         <Text style={styles.buttonText}>Đi đến Tuan6_4a</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Tuan6_4b')}
+        activeOpacity={0.7}
+      >
+        <Text style={styles.buttonText}>Đi đến Tuan6_4b</Text>
       </TouchableOpacity>
     </View>
   );
@@ -27,6 +35,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Tuan6_4a" component={Tuan6_4a} />
+        <Stack.Screen name="Tuan6_4b" component={Tuan6_4b} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -50,16 +59,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     borderRadius: 8,
     marginBottom: 15,
-    elevation: 5, // Tạo bóng cho nút
-    shadowColor: '#000', // Màu bóng
-    shadowOffset: { width: 0, height: 2 }, // Độ nghiêng của bóng
-    shadowOpacity: 0.3, // Độ mờ của bóng
-    shadowRadius: 3, // Đường kính bóng
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center', // Căn giữa văn bản
+    textAlign: 'center',
   },
 });
